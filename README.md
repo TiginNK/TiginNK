@@ -1,65 +1,57 @@
-![nukkit](.github/images/banner.png)
+# TiginNK
 
-Introduction
--------------
+TiginNK is a high-performance, **optimization-focused** server software for Minecraft: Bedrock Edition. It is a fork of Cloudburst Nukkit, aiming to provide a more stable and faster experience.
 
-Nukkit is nuclear-powered server software for Minecraft Bedrock Edition.
-It has a few key advantages over other server software:
-
-* Written in Java, Nukkit is faster and more stable.
-* Having a friendly structure, it's easy to contribute to Nukkit's development and rewrite plugins from other platforms into Nukkit plugins.
-
-Nukkit is under improvement yet, we welcome contributions.
+Written in Java, TiginNK is fast, stable, and easy to develop for.
 
 Links
 --------------------
 
-* __[Forums](https://cloudburstmc.org/forums/)__
-* __[Discord](https://discord.gg/5PzMkyK)__
-* __[Wiki](https://cloudburstmc.org/wiki/nukkit)__
-* __[Download Nukkit](https://dl.opencollab.dev/nukkit)__
-* __[Download Plugins](https://cloudburstmc.org/resources/categories/nukkit-plugins.1/)__
+* __[Website](https://tigin.xyz/)__
+* __[Documentation](https://docs.tigin.xyz)__
+* __[GitHub](https://github.com/TiginNK/TiginNK)__
 
-Compile Nukkit
+Compile TiginNK
 -------------
-- `git clone https://github.com/CloudburstMC/Nukkit`
-- `cd Nukkit`
-- `./gradlew shadowJar`
+To compile from source:
 
-The compiled JAR can be found in the `target/` directory.
+```bash
+git clone https://github.com/TiginNK/TiginNK
+cd TiginNK
+./gradlew shadowJar
+```
 
-Note: You don't need to compile Nukkit yourself if you don't intend to modify the code.
+The compiled JAR file can be found in the `build/libs/` directory.
 
 Running
 -------------
-Simply run `java -jar nukkit-1.0-SNAPSHOT.jar`.
-
-Plugin API
--------------
-Information on Nukkit's API can be found at the [wiki](https://nukkitx.com/wiki/nukkit/).
+To start the server:
+`java -jar tiginnk-1.0-SNAPSHOT.jar`
+*(Filename may vary depending on the version)*
 
 Docker
 -------------
 
-Running Nukkit in [Docker](https://www.docker.com/) (17.05+ or higher).
+Running TiginNK in [Docker](https://www.docker.com/) (17.05+ or higher).
 
-Build image from the source,
+Build image from source:
 
-```
-docker build -t nukkit .
+```bash
+docker build -t tiginnk .
 ```
 
-Run once to generate the `nukkit-data` volume, default settings, and choose language,
+Run once to generate the `tiginnk-data` volume, load default settings, and choose language:
 
+```bash
+docker run -it -p 19132:19132/udp -v tiginnk-data:/data tiginnk
 ```
-docker run -it -p 19132:19132/udp -v nukkit-data:/data nukkit
-```
+
 Docker Compose
 -------------
 
-Use [docker-compose](https://docs.docker.com/compose/overview/) to start server on port `19132` and with `nukkit-data` volume,
+Use [docker-compose](https://docs.docker.com/compose/overview/) to start the server on port `19132` with the `tiginnk-data` volume:
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -72,37 +64,37 @@ Validate the chart:
 
 Dry run and print out rendered YAML:
 
-`helm install --dry-run --debug nukkit charts/nukkit`
+`helm install --dry-run --debug tiginnk charts/nukkit`
 
 Install the chart:
 
-`helm install nukkit charts/nukkit`
+`helm install tiginnk charts/nukkit`
 
-Or, with some different values:
+Or, with different values (e.g., ARM64 and LoadBalancer):
 
-```
-helm install nukkit \
+```bash
+helm install tiginnk \
   --set image.tag="arm64" \
   --set service.type="LoadBalancer" \
     charts/nukkit
 ```
 
-Or, the same but with a custom values from a file:
+Or, using a custom values file:
 
-```
-helm install nukkit \
+```bash
+helm install tiginnk \
   -f helm-values.local.yaml \
     charts/nukkit
 ```
 
 Upgrade the chart:
 
-`helm upgrade nukkit charts/nukkit`
+`helm upgrade tiginnk charts/nukkit`
 
 Testing after deployment:
 
-`helm test nukkit`
+`helm test tiginnk`
 
 Completely remove the chart:
 
-`helm uninstall nukkit`
+`helm uninstall tiginnk`
