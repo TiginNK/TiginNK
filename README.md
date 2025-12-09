@@ -1,108 +1,40 @@
-![nukkit](.github/images/banner.png)
+![TiginNK](.github/readme/tigin.png)
+# TiginNK
 
-Introduction
--------------
+TiginNK is a high-performance, **optimization-focused** server software for Minecraft: Bedrock Edition written in Java. It is a fork of Cloudburst Nukkit, aiming to provide a more stable and faster experience.
 
-Nukkit is nuclear-powered server software for Minecraft Bedrock Edition.
-It has a few key advantages over other server software:
-
-* Written in Java, Nukkit is faster and more stable.
-* Having a friendly structure, it's easy to contribute to Nukkit's development and rewrite plugins from other platforms into Nukkit plugins.
-
-Nukkit is under improvement yet, we welcome contributions.
+> [!IMPORTANT]
+> TiginNK is still improving, we welcome contributions.
 
 Links
 --------------------
 
-* __[Forums](https://cloudburstmc.org/forums/)__
-* __[Discord](https://discord.gg/5PzMkyK)__
-* __[Wiki](https://cloudburstmc.org/wiki/nukkit)__
-* __[Download Nukkit](https://dl.opencollab.dev/nukkit)__
-* __[Download Plugins](https://cloudburstmc.org/resources/categories/nukkit-plugins.1/)__
+* __[Website](https://tigin.xyz/)__
+* __[Documentation](https://docs.tigin.xyz)__
+* __[GitHub](https://github.com/TiginNK)__
 
-Compile Nukkit
+Compile TiginNK
 -------------
-- `git clone https://github.com/CloudburstMC/Nukkit`
-- `cd Nukkit`
-- `./gradlew shadowJar`
+To compile from source:
 
-The compiled JAR can be found in the `target/` directory.
+```bash
+git clone https://github.com/TiginNK/TiginNK.git
+cd TiginNK
+./gradlew shadowJar
+```
 
-Note: You don't need to compile Nukkit yourself if you don't intend to modify the code.
+The compiled JAR file can be found in the `build/libs/` directory.
 
 Running
 -------------
-Simply run `java -jar nukkit-1.0-SNAPSHOT.jar`.
+To start the server:
+`java -jar TiginNK-1.0-SNAPSHOT.jar`
+*(Filename may vary depending on the version)*
 
-Plugin API
+Contributions
 -------------
-Information on Nukkit's API can be found at the [wiki](https://nukkitx.com/wiki/nukkit/).
+We welcome contributions, feel free to submit pull request.
 
-Docker
--------------
-
-Running Nukkit in [Docker](https://www.docker.com/) (17.05+ or higher).
-
-Build image from the source,
-
-```
-docker build -t nukkit .
-```
-
-Run once to generate the `nukkit-data` volume, default settings, and choose language,
-
-```
-docker run -it -p 19132:19132/udp -v nukkit-data:/data nukkit
-```
-Docker Compose
--------------
-
-Use [docker-compose](https://docs.docker.com/compose/overview/) to start server on port `19132` and with `nukkit-data` volume,
-
-```
-docker-compose up -d
-```
-
-Kubernetes & Helm
--------------
-
-Validate the chart:
-
-`helm lint charts/nukkit`
-
-Dry run and print out rendered YAML:
-
-`helm install --dry-run --debug nukkit charts/nukkit`
-
-Install the chart:
-
-`helm install nukkit charts/nukkit`
-
-Or, with some different values:
-
-```
-helm install nukkit \
-  --set image.tag="arm64" \
-  --set service.type="LoadBalancer" \
-    charts/nukkit
-```
-
-Or, the same but with a custom values from a file:
-
-```
-helm install nukkit \
-  -f helm-values.local.yaml \
-    charts/nukkit
-```
-
-Upgrade the chart:
-
-`helm upgrade nukkit charts/nukkit`
-
-Testing after deployment:
-
-`helm test nukkit`
-
-Completely remove the chart:
-
-`helm uninstall nukkit`
+<a href="https://github.com/TiginNK/TiginNK/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TiginNK/TiginNK" />
+</a>

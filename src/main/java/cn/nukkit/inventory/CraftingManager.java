@@ -74,7 +74,7 @@ public class CraftingManager {
 
         this.rebuildPacket();
 
-        MainLogger.getLogger().info("Successfully loaded " + this.recipes.size() + " recipes");
+        MainLogger.getLogger().info(Server.getInstance().getLanguage().translateString("nukkit.recipe.loaded", String.valueOf(this.recipes.size())));
     }
 
     private void registerSmithingRecipes() {
