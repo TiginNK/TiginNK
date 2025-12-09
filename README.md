@@ -1,3 +1,4 @@
+![TiginNK](.github/readme/tigin.png)
 # TiginNK
 
 TiginNK is a high-performance, **optimization-focused** server software for Minecraft: Bedrock Edition written in Java. It is a fork of Cloudburst Nukkit, aiming to provide a more stable and faster experience.
