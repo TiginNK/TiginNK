@@ -243,10 +243,10 @@ gradle-app.setting
 rebel.xml
 rebel-remote.xml
 
-# Nukkit generated files
+# TiginNK generated files
 banned-ips.json
 banned-players.json
-/nukkit.yml
+/tigin.yml
 ops.txt
 server.log
 server.properties

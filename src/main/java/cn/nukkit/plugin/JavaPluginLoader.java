@@ -40,7 +40,7 @@ public class JavaPluginLoader implements PluginLoader {
             this.server.getLogger().info(this.server.getLanguage().translateString("nukkit.plugin.load", description.getFullName()));
             File dataFolder = new File(file.getParentFile(), description.getName());
             if (dataFolder.exists() && !dataFolder.isDirectory()) {
-                throw new IllegalStateException("Projected dataFolder '" + dataFolder.toString() + "' for " + description.getName() + " exists and is not a directory");
+                throw new IllegalStateException("Projected dataFolder '" + dataFolder + "' for " + description.getName() + " exists and is not a directory");
             }
 
             String className = description.getMain();
@@ -82,12 +82,9 @@ public class JavaPluginLoader implements PluginLoader {
     @Override
     public PluginDescription getPluginDescription(File file) {
         try (JarFile jar = new JarFile(file)) {
-            JarEntry entry = jar.getJarEntry("nukkit.yml");
+            JarEntry entry = jar.getJarEntry("plugin.yml");
             if (entry == null) {
-                entry = jar.getJarEntry("plugin.yml");
-                if (entry == null) {
-                    return null;
-                }
+                return null;
             }
             try (InputStream stream = jar.getInputStream(entry)) {
                 return new PluginDescription(Utils.readFile(stream));
