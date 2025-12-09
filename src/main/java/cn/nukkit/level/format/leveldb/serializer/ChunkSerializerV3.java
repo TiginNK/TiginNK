@@ -23,7 +23,7 @@ public class ChunkSerializerV3 implements ChunkSerializer {
     public static final ChunkSerializer INSTANCE = new ChunkSerializerV3();
 
     @Override
-    public void serialize(WriteBatch db, Chunk chunk) {
+    public void serialize(WriteBatch db, Chunk chunk, int chunkX, int chunkZ) {
         // Write chunk sections
         DimensionData dimensionData = chunk.getProvider().getLevel().getDimensionData();
         int lowestSection = dimensionData.getMinHeight() >> 4;
@@ -42,7 +42,7 @@ public class ChunkSerializerV3 implements ChunkSerializer {
 
                 byte[] payload = new byte[buffer.readableBytes()];
                 buffer.readBytes(payload);
-                db.put(LevelDBKey.SUB_CHUNK_PREFIX.getKey(chunk.getX(), chunk.getZ(), ySection, chunk.getProvider().getLevel().getDimension()), payload);
+                db.put(LevelDBKey.SUB_CHUNK_PREFIX.getKey(chunkX, chunkZ, ySection, chunk.getProvider().getLevel().getDimension()), payload);
             } finally {
                 buffer.release();
             }
@@ -51,7 +51,7 @@ public class ChunkSerializerV3 implements ChunkSerializer {
             try {
                 byte[] blockLight = section.getLightArray();
                 if (blockLight != EmptyChunkSection.EMPTY_LIGHT_ARR) {
-                    db.put(LevelDBKey.NUKKIT_BLOCK_LIGHT.getKey(chunk.getX(), chunk.getZ(), ySection, chunk.getProvider().getLevel().getDimension()), blockLight);
+                    db.put(LevelDBKey.NUKKIT_BLOCK_LIGHT.getKey(chunkX, chunkZ, ySection, chunk.getProvider().getLevel().getDimension()), blockLight);
                 }
             } finally {
                 buffer.release();

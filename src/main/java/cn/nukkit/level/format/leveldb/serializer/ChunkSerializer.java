@@ -7,7 +7,7 @@ import org.iq80.leveldb.WriteBatch;
 
 public interface ChunkSerializer {
 
-    void serialize(WriteBatch db, Chunk chunk);
+    void serialize(WriteBatch db, Chunk chunk, int chunkX, int chunkZ);
 
     void deserialize(DB db, ChunkBuilder chunkBuilder);
 }
