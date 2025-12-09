@@ -415,7 +415,7 @@ public class LevelDBProvider implements LevelProvider {
 
     private WriteBatch save0(int chunkX, int chunkZ, LevelDBChunk chunk) {
         WriteBatch batch = this.db.createWriteBatch();
-        ChunkSerializers.serializeChunk(batch, chunk, LATEST_CHUNK_VERSION);
+        ChunkSerializers.serializeChunk(batch, chunk, LATEST_CHUNK_VERSION, chunkX, chunkZ);
         if (chunk.has3dBiomes()) {
             Data3dSerializer.serialize(batch, chunk);
         } else {

@@ -47,8 +47,8 @@ public class ChunkSerializers {
         return ChunkSerializerV3.INSTANCE;
     }
 
-    public static void serializeChunk(WriteBatch db, LevelDBChunk chunk, int version) {
-        getChunkSerializer(version).serialize(db, chunk);
+    public static void serializeChunk(WriteBatch db, LevelDBChunk chunk, int version, int chunkX, int chunkZ) {
+        getChunkSerializer(version).serialize(db, chunk, chunkX, chunkZ);
     }
 
     public static void deserializeChunk(DB db, ChunkBuilder chunkBuilder, int version) {
