@@ -35,8 +35,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
           - name: {{ template "nukkit.name" . }}-conf
-            subPath: nukkit.yml
-            mountPath: /var/opt/nukkit/nukkit.yml
+            subPath: tigin.yml
+            mountPath: /var/opt/nukkit/tigin.yml
           ports:
             - name: udp
               containerPort: 19132

@@ -356,7 +356,7 @@ public class Server {
         this.consoleThread = new ConsoleThread();
         this.consoleThread.start();
 
-        if (!new File(this.dataPath + "nukkit.yml").exists()) {
+        if (!new File(this.dataPath + "tigin.yml").exists()) {
             this.getLogger().info(TextFormat.GREEN + "Welcome! Please choose a language first!");
             try {
                 InputStream languageList = this.getClass().getClassLoader().getResourceAsStream("lang/language.list");
@@ -391,19 +391,19 @@ public class Server {
                 }
             }
 
-            InputStream advacedConf = this.getClass().getClassLoader().getResourceAsStream("lang/" + language + "/nukkit.yml");
+            InputStream advacedConf = this.getClass().getClassLoader().getResourceAsStream("lang/" + language + "/tigin.yml");
             if (advacedConf == null) {
-                advacedConf = this.getClass().getClassLoader().getResourceAsStream("lang/" + fallback + "/nukkit.yml");
+                advacedConf = this.getClass().getClassLoader().getResourceAsStream("lang/" + fallback + "/tigin.yml");
             }
 
             try {
-                Utils.writeFile(this.dataPath + "nukkit.yml", advacedConf);
+                Utils.writeFile(this.dataPath + "tigin.yml", advacedConf);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
 
-        this.config = new Config(this.dataPath + "nukkit.yml", Config.YAML);
+        this.config = new Config(this.dataPath + "tigin.yml", Config.YAML);
 
         log.info("Loading server properties...");
 
@@ -522,7 +522,7 @@ public class Server {
         this.network.registerInterface(new RakNetInterface(this));
 
         if (!this.encryptionEnabled) {
-            this.getLogger().warning("Encryption is not enabled! For better security, it's recommended to enable it (network.encryption: true in nukkit.yml) if you don't use a proxy software.");
+            this.getLogger().warning("Encryption is not enabled! For better security, it's recommended to enable it (network.encryption: true in tigin.yml) if you don't use a proxy software.");
         }
 
         if (!this.xboxAuth) {
@@ -2258,7 +2258,7 @@ public class Server {
     }
 
     /**
-     * Get nukkit.yml
+     * Get tigin.yml
      *
      * @return config
      */
@@ -2556,7 +2556,7 @@ public class Server {
     }
 
     /**
-     * Load command aliases from nukkit.yml
+     * Load command aliases from tigin.yml
      */
     public Map<String, List<String>> getCommandAliases() {
         Object section = this.getConfig("aliases");
@@ -2858,7 +2858,7 @@ public class Server {
      * Load server config
      */
     private void loadSettings() {
-        /* nukkit.yml */
+        /* tigin.yml */
 
         this.forceLanguage = this.getConfig("settings.force-language", false);
         this.queryPlugins = this.getConfig("settings.query-plugins", true);

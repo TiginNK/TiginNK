@@ -13,7 +13,7 @@ plugins {
 
 group = "cn.nukkit"
 version = "1.0-SNAPSHOT"
-description = "Nuclear powered server software for Minecraft Bedrock Edition"
+description = "Open-source, lightweight custom server software for Minecraft: Bedrock Edition written in Java."
 
 repositories {
     mavenLocal()
@@ -86,7 +86,7 @@ publishing {
     }
 
     publications {
-        create<MavenPublication>("nukkit") {
+        create<MavenPublication>("TiginNK") {
             artifact(tasks.generateGitProperties) {
                 extension = "properties"
             }
@@ -145,5 +145,5 @@ tasks {
 }
 
 gitProperties {
-    customProperty("github.repo", "CloudburstMC/Nukkit")
+    customProperty("github.repo", "TiginNK/TiginNK")
 }

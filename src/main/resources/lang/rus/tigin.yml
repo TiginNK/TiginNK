@@ -1,11 +1,11 @@
-# Расширенные настройки сервера Nukkit
+# Расширенные настройки сервера TiginNK
 # Некоторые из этих параметров безопасны, иные могут нарушить работу вашего сервера, если вы неправильно их измените
 # Новые параметры и настройки не будут добавляться автоматически при обновлении этого файла
 #
 # Если Вы нашли ошибку, приглашаем помочь с переводом:
-# https://github.com/Nukkit/Languages
+# https://github.com/TiginNK/Languages
 #
-# Перевод осуществлён Pub4Game и fromgate (сообщество Nukkit.ru)
+# Перевод осуществлён Pub4Game и fromgate (сообщество TiginNK.ru)
 
 settings:
  #Выбор языка.
@@ -82,7 +82,7 @@ ticks-per:
 
 player:
  #Если выбрано true,то данные игрока будут храниться в файле players/playername.dat
- #Если выбрано false, Nukkit не будет хранить данные игрока в "dat" файлах, для того чтобы плагины с ними что-то делали.
+ #Если выбрано false, TiginNK не будет хранить данные игрока в "dat" файлах, для того чтобы плагины с ними что-то делали.
  save-player-data: true
  #The time between skin change action in seconds, set to 0 if you dont want the cooldown
  skin-change-cooldown: 15

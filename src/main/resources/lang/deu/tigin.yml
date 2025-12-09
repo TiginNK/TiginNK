@@ -1,4 +1,4 @@
-# Fortgeschrittene Konfiguration für Nukkit
+# Fortgeschrittene Konfiguration für TiginNK
 # Bei fehlerhaften Einstellungen kann der Server abstürzen
 # Neue Einstellungen/Standards erscheinen nicht automatisch beim upgraden
 
@@ -14,7 +14,7 @@ settings:
  #Soll in der Konsole eine Nachricht erscheinen, wenn ein Plugin eine veraltete Funkttiopn verwendet
  deprecated-verbose: true
  #Anzahl an AsyncTasks
- #Wenn es auf auto gestellt ist, wird Nukkit versuchen die Anzahl der Cores zu ermitteln (und setzt mindestens 4)
+ #Wenn es auf auto gestellt ist, wird TiginNK versuchen die Anzahl der Cores zu ermitteln (und setzt mindestens 4)
  async-workers: auto
 
 network:
@@ -76,7 +76,7 @@ ticks-per:
 
 player:
  #Wenn true, werden Spieldaten als players/playername.dat gespeichert.  
- #Wenn false, speichert Nukkit keine Spieldaten als "dat" Dateien, sodass Plugins darauf zugreifen und eigene Aktionen ausführen können.
+ #Wenn false, speichert TiginNK keine Spieldaten als "dat" Dateien, sodass Plugins darauf zugreifen und eigene Aktionen ausführen können.
  save-player-data: true
  #The time between skin change action in seconds, set to 0 if you dont want the cooldown
  skin-change-cooldown: 15
