@@ -2,9 +2,9 @@ name: Build TiginNK
 
 on:
   push:
-    branches: [ "master", "experimental" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "experimental" ]
+    branches: [ "master" ]
 
 jobs:
   build:
